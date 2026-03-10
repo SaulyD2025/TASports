@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="lo-navbar">
+        <form method="GET" action="{% url 'register' %}">
+            <button type="submit">Register</button>
+        </form>
+        <form method="GET" action="{% url 'login' %}">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="lo-display">
+    <ul id="game-grid">
+        {% for game in Games %}
+            <li class="game-grid-item"><img src="{{ game.hometeam_src }}" height="25" width="25">{{ game.hometeam_name }} vs {{ game.awayteam_name }}<img src="{{ game.awayteam_src }}" height="25" width="25"> <hr> <div>{{ game.fulldatetime }}</div></li>
+
+        {% endfor %}
+    </ul>
+    </div>
+    <div class="lo-footer"></div>
+</body>
+</html>

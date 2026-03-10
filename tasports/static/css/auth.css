@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2E2E2E;
+}
+
+.login-container, .register-container, .selection-container {
+        background-color: #3A3A3A;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    height: 60%;
+    width: 20%;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+.register-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    height: 60%;
+    width: 20%;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+.selection-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    height: 80%;
+    width: 130vh;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+.teamslist div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.teamslist label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 200px;
+    flex-direction: column;
+}
+
+.teamslist button {
+    align-items: center;
+    justify-content: center;
+}

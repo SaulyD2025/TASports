@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Log in below:</h1>
+        <form method="POST" class="loginform">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
