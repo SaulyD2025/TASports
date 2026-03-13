@@ -5,17 +5,21 @@ from .forms import UserRegistrationForm, SelectTeamsForm, LoginForm
 from .models import Game, Teams
 import datetime, requests
 from django.utils import timezone
+import os
+from dotenv import load_dotenv
 User = get_user_model()
 
+load_dotenv()
+api_key = os.environ.get("APIKEY")
 def home(request):
-    API_KEY = "1bf0507e-6f74-4380-ae3d-2319491da73b"
-    headers = {"Authorization": API_KEY}
+    apikey = api_key
+    headers = {"Authorization": apikey}
     date = datetime.date.today().strftime('%Y-%m-%d')
-    BASE_URL = f"https://api.balldontlie.io/v1/games?start_date={date}&per_page=75"
+    base_url = f"https://api.balldontlie.io/v1/games?start_date={date}&per_page=75"
     usergames = []
     time = timezone.now()
     if request.user.is_authenticated:
-        response = requests.get(BASE_URL, headers=headers)
+        response = requests.get(base_url, headers=headers)
         if response.status_code == 200:
             games = response.json()['data']
 
@@ -51,7 +55,7 @@ def home(request):
         return render(request, 'loggedinhome.html', {'usergames':usergames})
 
     else:
-        response = requests.get(BASE_URL, headers=headers)
+        response = requests.get(base_url, headers=headers)
         games = response.json()['data']
         if response.status_code == 200:
             for game in games:

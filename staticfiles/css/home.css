@@ -1,0 +1,114 @@
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #2E2E2E;
+}
+
+.lo-navbar, .lo-display, .lo-footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #2E2E2E;
+}
+
+.lo-navbar {
+    height: 10vh;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.lo-display {
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.li-navbar, .li-display, .li-footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #2E2E2E;
+}
+
+.li-navbar {
+    height: 10vh;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.li-display {
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.game-grid-item {
+    padding: 20px;
+    border-radius: 5px;
+    width: 250px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    background-color: #3A3A3A;
+    color: #FAF9F6;
+    list-style-type: none;
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
+    justify-items: center;
+}
+
+.game-grid-item div {
+    margin-top: 4px;
+    background-color: #3A3A3A;
+    color: #FAF9F6;
+}
+
+.user-game-grid-item {
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    background-color: #3A3A3A;
+    color: #FAF9F6;
+    list-style-type: none;
+    width: 250px;
+}
+
+#user-game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
+    justify-items: center;
+}
+
+.user-game-grid-item div {
+    margin-top: 4px;
+    background-color: #3A3A3A;
+    color: #FAF9F6;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    color: #FAF9F6;
+    padding: 5px;
+}
