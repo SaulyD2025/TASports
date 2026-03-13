@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(tcdqjodr#-+d9be#^oc=!6u6wfzh!qorbuo_hf_0&g#g=+1(g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tasports.onrender.com']
 
 
 # Application definition
