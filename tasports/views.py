@@ -19,7 +19,7 @@ def home(request):
     usergames = []
     time = timezone.now()
     if request.user.is_authenticated:
-        response = requests.get(base_url, headers=headers)
+        response = requests.get(base_url, headers=headers, timeout=10)
         if response.status_code == 200:
             games = response.json()['data']
 
@@ -55,7 +55,7 @@ def home(request):
         return render(request, 'loggedinhome.html', {'usergames':usergames})
 
     else:
-        response = requests.get(base_url, headers=headers)
+        response = requests.get(base_url, headers=headers, timeout=10)
         games = response.json()['data']
         if response.status_code == 200:
             for game in games:
