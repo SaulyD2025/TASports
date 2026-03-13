@@ -7,8 +7,8 @@ body {
     background-color: #2E2E2E;
 }
 
-.login-container, .register-container, .selection-container {
-        background-color: #3A3A3A;
+.login-container, .register-container, .selection-container, .settings-container {
+        background-color: #2E2E2E;
 }
 
 .login-container {
@@ -19,6 +19,18 @@ body {
     width: 20%;
     border-radius: 20px;
     flex-direction: column;
+    color: #FAF9F6;
+}
+
+.settings-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    height: 60%;
+    width: 20%;
+    border-radius: 20px;
+    flex-direction: column;
+    color: #FAF9F6;
 }
 
 .register-container {
@@ -29,6 +41,7 @@ body {
     width: 20%;
     border-radius: 20px;
     flex-direction: column;
+    color: #FAF9F6;
 }
 
 .selection-container {
@@ -39,6 +52,7 @@ body {
     width: 130vh;
     border-radius: 20px;
     flex-direction: column;
+    color: #FAF9F6;
 }
 
 .teamslist div {
@@ -60,3 +74,55 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+
+.formcontents {
+    list-style-type: none;
+    color: #FAF9F6;
+}
+
+.submit-button {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    margin-top: 10px;
+    padding: 5px;
+    color: #FAF9F6;
+}
+
+.logincontents {
+    list-style-type: none;
+    color: #FAF9F6;
+}
+
+.loginbutton {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    margin-top: 10px;
+    padding: 5px;
+    color: #FAF9F6;
+}
+
+.deletebutton {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    margin-top: 10px;
+    padding: 5px;
+    color: #FAF9F6;
+}
+
+.changeteamsbutton {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    margin-top: 10px;
+    padding: 5px;
+    color: #FAF9F6;
+}
+
+.teamssubmit {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    margin-top: 10px;
+    padding: 5px;
+    color: #FAF9F6;
+}
+

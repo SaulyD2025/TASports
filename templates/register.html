@@ -10,11 +10,18 @@
 <body>
     <div class="register-container">
     <h1>Register below:</h1>
-            <form method="POST" class="registerform">
-                {% csrf_token %}
-                {{ form.as_table }}
-                <button type="submit">Submit</button>
-            </form>
+            <ul class="formcontents">
+                <form method="POST" class="registerform">
+                    {% csrf_token %}
+                    <li><p>Username:</p></li>
+                    <li>{{ form.username }}</li>
+                    <li><p>Password:</p></li>
+                    <li>{{ form.password }}</li>
+                    <li><p>Confirm Password:</p></li>
+                    <li>{{ form.confirmpassword }}</li>
+                    <button class="submit-button" type="submit">Submit</button>
+                </form>
+            </ul>
     </div>
 </body>
 </html>

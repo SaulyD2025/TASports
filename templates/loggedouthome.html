@@ -9,21 +9,27 @@
 </head>
 <body>
     <div class="lo-navbar">
-        <form method="GET" action="{% url 'register' %}">
-            <button type="submit">Register</button>
-        </form>
-        <form method="GET" action="{% url 'login' %}">
-            <button type="submit">Login</button>
-        </form>
+        <div class="btn-group">
+            <form method="GET" action="{% url 'register' %}">
+                <button class="btn" type="submit">Register</button>
+            </form>
+            <form method="GET" action="{% url 'login' %}">
+                <button class="btn" type="submit">Login</button>
+            </form>
+        </div>
     </div>
     <div class="lo-display">
     <ul id="game-grid">
         {% for game in Games %}
-            <li class="game-grid-item"><img src="{{ game.hometeam_src }}" height="25" width="25">{{ game.hometeam_name }} vs {{ game.awayteam_name }}<img src="{{ game.awayteam_src }}" height="25" width="25"> <hr> <div>{{ game.fulldatetime }}</div></li>
+            <li class="game-grid-item"><img src="{{ game.hometeam_src }}" height="25" width="25">{{ game.hometeam_name }} vs {{ game.awayteam_name }}<img src="{{ game.awayteam_src }}" height="25" width="25"> <hr> <div id="time">{{ game.fulldatetime }}</div></li>
 
         {% endfor %}
     </ul>
     </div>
     <div class="lo-footer"></div>
+    <script>
+        const datetime = document.getElementById('time');
+        datetime.value = new Date(datetime.value).toLocaleString();
+    </script>
 </body>
 </html>

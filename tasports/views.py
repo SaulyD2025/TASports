@@ -4,7 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegistrationForm, SelectTeamsForm, LoginForm
 from .models import Game, Teams
 import datetime, requests
-
+from django.utils import timezone
 User = get_user_model()
 
 def home(request):
@@ -13,6 +13,7 @@ def home(request):
     date = datetime.date.today().strftime('%Y-%m-%d')
     BASE_URL = f"https://api.balldontlie.io/v1/games?start_date={date}&per_page=75"
     usergames = []
+    time = timezone.now()
     if request.user.is_authenticated:
         response = requests.get(BASE_URL, headers=headers)
         if response.status_code == 200:
@@ -42,6 +43,10 @@ def home(request):
                 for game in Game.objects.all():
                     if team.id == game.hometeam_id or team.id == game.awayteam_id:
                         usergames.append(game)
+
+            for game in Game.objects.all():
+                if game.fulldatetime < time:
+                     game.delete()
 
         return render(request, 'loggedinhome.html', {'usergames':usergames})
 
@@ -118,5 +123,13 @@ def teamselection(request):
     else:
         form = SelectTeamsForm()
     return render(request, 'teamselection.html', {'form': form})
+
+def delete(request):
+    if request.method == 'POST':
+        request.user.delete()
+        logout(request)
+        return redirect('home')
+    else:
+        return render(request, 'settingspage.html', {'delete': delete})
 
 # Create your views here.

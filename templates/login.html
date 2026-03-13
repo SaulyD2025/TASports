@@ -10,11 +10,16 @@
 <body>
     <div class="login-container">
         <h1>Log in below:</h1>
-        <form method="POST" class="loginform">
-            {% csrf_token %}
-            {{ form.as_table }}
-            <button type="submit">Submit</button>
-        </form>
+        <ul class="logincontents">
+            <form method="POST" class="loginform">
+                {% csrf_token %}
+                <li><p>Username:</p></li>
+                <li>{{ form.username }}</li>
+                <li><p>Password:</p></li>
+                <li>{{ form.password }}</li>
+                <button class="loginbutton" type="submit">Submit</button>
+            </form>
+        </ul>
     </div>
 </body>
 </html>
