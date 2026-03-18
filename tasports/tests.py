@@ -1,5 +1,10 @@
 from django.test import TestCase
 from .models import Teams, CustomUser, Game
+import os, requests, datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.environ.get("APIKEY")
 
 class TeamsTest(TestCase):
     def setUp(self):
@@ -23,6 +28,15 @@ class GameTest(TestCase):
         self.assertEqual(game.awayteam_name, 'Monstars')
         self.assertEqual(game.awayteam_id, 200)
         self.assertEqual(game.hometeam_id, 100)
+
+class APITest(TestCase):
+    def testapi(self):
+        apikey = api_key
+        date = datetime.date.today().strftime('%Y-%m-%d')
+        base_url = f"https://api.balldontlie.io/v1/games?start_date={date}&per_page=10"
+        headers = {"Authorization": apikey}
+        response = requests.get(base_url, headers=headers)
+        self.assertEqual(response.status_code,200)
 
 
 # Create your tests here.
